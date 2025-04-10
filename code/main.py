@@ -48,8 +48,8 @@ class Main:
         
         # self
         if snake_head in self.snake.body[1:] or \
-            not 0 < snake_head.x <= COLS or \
-                not 0 < snake_head.y <= ROWS:
+            not 0 <= snake_head.x < COLS or \
+                not 0 <= snake_head.y < ROWS:
             self.snake.reset()
             self.game_active = False
 
