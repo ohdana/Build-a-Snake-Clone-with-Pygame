@@ -19,6 +19,7 @@ class Snake:
             for image_name in image_names:
                 full_path = join(folder_path, image_name)
                 surface = pygame.image.load(full_path).convert_alpha()
+                surface.set_colorkey((255, 255, 255))
                 surf_dict[image_name.split('.')[0]] = surface
         
         return surf_dict

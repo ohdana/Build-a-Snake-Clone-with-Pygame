@@ -8,7 +8,11 @@ class Apple:
         self.set_pos(unavailable_pos)
 
         self.surf = pygame.image.load(join('graphics', 'apple.png')).convert_alpha()
-    
+        self.surf.set_colorkey((255, 255, 255))
+        self.scaled_surf = self.surf.copy()
+        cell_center = (self.pos.x * CELL_SIZE + CELL_SIZE / 2, self.pos.y * CELL_SIZE + CELL_SIZE / 2)
+        self.scaled_rect = self.scaled_surf.get_rect(center = cell_center)
+
     def set_pos(self, unavailable_pos):
         available_pos = [pygame.Vector2(x, y) for x in range(COLS) for y in range(ROWS)
                          if pygame.Vector2(x, y) not in unavailable_pos]
