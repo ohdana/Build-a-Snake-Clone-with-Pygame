@@ -22,6 +22,12 @@ class Main:
         pygame.time.set_timer(self.update_event, 200)
         self.game_active = False
 
+        # audio 
+        self.crunch_sound = pygame.mixer.Sound(join('audio', 'crunch.wav'))
+        self.bg_music = pygame.mixer.Sound(join('audio', 'arcade.ogg'))
+        self.bg_music.set_volume(0.5)
+        self.bg_music.play(-1)
+
     def draw_bg(self):
         self.display_surface.fill(LIGHT_GREEN)
         for rect in self.bg_rects:
@@ -45,6 +51,7 @@ class Main:
         if snake_head == self.apple.pos:
             self.snake.has_eaten = True
             self.apple.set_pos(self.snake.body)
+            self.crunch_sound.play()
         
         # self
         if snake_head in self.snake.body[1:] or \
