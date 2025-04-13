@@ -26,7 +26,7 @@ class Main:
         self.crunch_sound = pygame.mixer.Sound(join('audio', 'crunch.wav'))
         self.bg_music = pygame.mixer.Sound(join('audio', 'arcade.ogg'))
         self.bg_music.set_volume(0.5)
-        #self.bg_music.play(-1)
+        self.bg_music.play(-1)
 
     def draw_bg(self):
         self.display_surface.fill(LIGHT_GREEN)
